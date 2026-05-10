@@ -14,7 +14,7 @@ with st.container(border=True):
                 if results:
                     col1, col2, col3 = st.columns(3)
                     with col1:
-                            st.metric('Matches PLayed', results['matches'])
+                            st.metric('Matches Played', results['matches'])
                             st.metric('Points Earned', int(results["points"]))
                     with col2:
                             st.metric('Wins', results['wins'])
