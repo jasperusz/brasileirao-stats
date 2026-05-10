@@ -17,13 +17,14 @@ match_summary[match_summary['visitante'].str.replace('-', ' ') != '-'].value_cou
 
 # Team Stats Variables
 team_options = sorted(other_stats['clube'].unique())
-team_wins_count = match_summary[match_summary['vencedor'].str.replace('-', ' ') != '-'].value_counts('vencedor')
+team_wins_count = match_summary[match_summary['vencedor'] != '-'].value_counts('vencedor')
 team_draws_count = match_summary[match_summary['vencedor'] == '-']['mandante'].value_counts() + \
                    match_summary[match_summary['vencedor'] == '-']['visitante'].value_counts()
 points_earned = team_wins_count * 3 + team_draws_count # 3 points for each win plus 1 point for each draw
 points_average = points_earned / matches_played # Points per game average
 wins_average = (points_earned / (matches_played * 3)) * 100 # Performance record as a percentage of points won per match played
 team_wins_index = team_wins_count.index.str.lower().str.replace('-', ' ')
+top_10_teams = team_wins_count.head(10).reset_index()
 
 
 def search_team(input_teams, team_wins_count, matches_played, points_earned, points_average, wins_average, team_wins_index, team_draws_count):
