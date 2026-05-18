@@ -70,7 +70,7 @@ streamlit run app.py
 
 ## ✅ Future Intended Updates
 
-- [ ] Multilingual Support
+- [x] Multilingual Support (Added Portuguese-BR and Español)
 - [ ] Player Stats
 
 ## ⚖️ License
